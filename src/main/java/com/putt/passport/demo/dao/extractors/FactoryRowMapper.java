@@ -1,6 +1,6 @@
-package com.putt.passport.demo.dao;
+package com.putt.passport.demo.dao.extractors;
 
-import com.putt.passport.demo.models.FactoryResponse;
+import com.putt.passport.demo.models.response.FactoryResponse;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

@@ -1,7 +1,7 @@
 package com.putt.passport.demo.service;
 
 import com.putt.passport.demo.dao.FactoryDao;
-import com.putt.passport.demo.models.FactoryResponse;
+import com.putt.passport.demo.models.response.FactoryResponse;
 import com.putt.passport.demo.models.request.CreateFactoryRequest;
 import com.putt.passport.demo.models.request.UpdateFactoryRequest;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,10 @@ public class Factory {
     }
 
     public FactoryResponse insertFactory(CreateFactoryRequest requestFactory){
-        return  factoryDao.insertFactory(createFactory(requestFactory))     ;
+        FactoryResponse factoryResponse = createFactory(requestFactory);
+        Long factoryId = factoryDao.insertFactory(factoryResponse);
+        factoryDao.insertFactoryNodes(factoryResponse.getNodes(), factoryId);
+        return factoryDao.getFactoriesAndNodesByFactoryId(factoryId).get(0);
     }
 
     public FactoryResponse updateFactory(UpdateFactoryRequest updateFactoryRequest){

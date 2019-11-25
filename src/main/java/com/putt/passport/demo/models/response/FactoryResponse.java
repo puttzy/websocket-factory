@@ -1,4 +1,4 @@
-package com.putt.passport.demo.models;
+package com.putt.passport.demo.models.response;
 
 import com.putt.passport.demo.models.request.CreateFactoryRequest;
 import lombok.Data;
@@ -9,14 +9,6 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class FactoryResponse extends CreateFactoryRequest {
-
-
     Long id;
-    Set<FactoryResponseNode> nodes;
-
-
-
-
-
-
+    Set<FactoryNodeResponse> nodes;
 }

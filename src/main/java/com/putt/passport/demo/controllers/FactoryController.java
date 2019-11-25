@@ -1,7 +1,7 @@
 package com.putt.passport.demo.controllers;
 
 
-import com.putt.passport.demo.models.FactoryResponse;
+import com.putt.passport.demo.models.response.FactoryResponse;
 import com.putt.passport.demo.models.request.CreateFactoryRequest;
 import com.putt.passport.demo.models.request.DeleteFactoryRequest;
 import com.putt.passport.demo.models.request.UpdateFactoryRequest;
@@ -17,12 +17,12 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-public class NodeFactoryController {
+public class FactoryController {
 
     private Factory factory;
 
     @Autowired
-    public NodeFactoryController(Factory factory) {
+    public FactoryController(Factory factory) {
         this.factory = factory;
     }
 
