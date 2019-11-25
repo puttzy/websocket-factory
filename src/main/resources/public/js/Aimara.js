@@ -115,7 +115,7 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 			this.rendered = true;
 
 			var div_tree = document.getElementById(this.div);
-			div_tree.innerHTML = '<div class="root-node">Root</div>';
+			div_tree.innerHTML = '<div class="root-node">Root<div style="display:inline-block; float: right;">{<img src="images/create.png" style="height: 15px">create new factory}</div></div>';
 
 			ulElement = createSimpleElement('ul',this.name,'tree');
 			this.ulElement = ulElement;
@@ -387,7 +387,7 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 						v_li.appendChild(v_span);
 
 						if (v_menu.elements[i].icon!=undefined) {
-							var v_img = createImgElement('null','null',v_menu.elements[i].icon);
+							var v_img = createImgElement('null','menu_icon',v_menu.elements[i].icon);
 							v_li.appendChild(v_img);
 						}
 

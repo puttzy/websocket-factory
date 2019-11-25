@@ -13,7 +13,13 @@ var contex_menu = {
                 }
             },{
                 text : 'Rename Factory',
-                icon: 'images/delete.png',
+                icon: 'images/rename.png',
+                action : function(node) {
+                    node.setText('dan ');
+                }
+            },{
+                text : 'Regenerate Factory',
+                icon: 'images/regenerate.png',
                 action : function(node) {
                     node.setText('dan ');
                 }

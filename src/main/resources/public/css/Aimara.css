@@ -58,6 +58,7 @@ ul.tree li ul li{
 
 }
 
+
 ul.tree li.last {
 	background: #fff url(lastnode.png) no-repeat;
 }
@@ -167,6 +168,7 @@ span.node_selected a {
   display: inline-block;
 	vertical-align: sub;
   padding-left: 5px;
+	width: 25px;
 }
 .menu li {
   position: relative;
