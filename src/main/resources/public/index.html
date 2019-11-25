@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebSocket Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/Aimara.css">
+</head>
+<body>
+<div style="width: 100%">
+    <div id="chatControls" style="width: 600px; float: left;">
+        <span class="greendot" id="connection_status"></span>
+
+        <fieldset>
+            <legend>Add Factory (again)</legend>
+            <input id="addFactory_Name"  placeholder="factory name">
+            <input id="addFactory_Nodes" placeholder="how many nodes">
+            <input id="addFactory_Min" placeholder="min">
+            <input id="addFactory_Max" placeholder="max">
+            <button id="addFactory_Button">Add Factory</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>Update Factory</legend>
+            <input id="updateFactory_Id" placeholder="Node Id">
+            <input id="updateFactory_Name"  placeholder="factory name">
+            <input id="updateFactory_Nodes" placeholder="How many nodes">
+            <input id="updateFactory_Min" placeholder="min">
+            <input id="updateFactory_Max" placeholder="max">
+            <button id="updateFactory_Button">Update Factory</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>Rename Factory</legend>
+            <input id="renameFactory_Id" placeholder="Node Id">
+            <input id="renameFactory_Nodes"  placeholder="New Name">
+            <button id="renameFactory_Button">Rename Factory</button>
+        </fieldset>
+    </div>
+    <div id="div_tree" style="margin-left: 620px; width: 40%">test</div>
+</div>
+
+
+<noscript><h2 style="color: #ff0000">
+    Seems your browser doesn't support Javascript!
+    Websocket relies on Javascript being enabled.
+    Please enable Javascript and reload this page!</h2></noscript>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+<script src="js/stomp.js"></script>
+<script src="js/util.js"></script>
+<script src="js/createNodeHandler.js"></script>
+<script src="js/updateNodeHandler.js"></script>
+<script src="js/loadNodeHandler.js"></script>
+<script src="js/Aimara.js"></script>
+<script src="js/contextMenu.js"></script>
+<script src="./app.js"></script>
+<script src="js/socketDefs.js"></script>
+
+
+</body>
+</html>

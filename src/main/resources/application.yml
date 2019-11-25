@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: web-passport-socket  # Service registers under this name
+    config:
+      enabled: false
+  datasource:
+    initialization-mode: always
+    url: jdbc:mysql://104.196.220.75/passport
+    username: "root"
+    password: ${db_password}
+    driver-class-name: com.mysql.jdbc.Driver
+  flyway:
+    locations: classpath:database_migrations
+    clean-on-validation-error: true
+    clean-disabled: false
+    clean: true
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#datasources:
+#  default:
+#    url: jdbc:mysql://104.196.220.75/passport
+#    username: "root"
+#    password: "KlanddunmcjepjsP"
+#    maximumPoolSize: 15
+#    minimumIdle: 5
+#    driverClassName: com.mysql.jdbc.Driver

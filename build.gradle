@@ -1,0 +1,62 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	id 'com.google.cloud.tools.jib' version '1.3.0'
+}
+
+group = 'com.putt.passport'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+jib {
+	to {
+		image= "gcr.io/dan-demo-38358/passport-springboot-jib"
+		tags= ['passport-springboot-jib']
+	}
+	container {
+		//environment=[GOOGLE_APPLICATION_CREDENTIALS: './cred/logging_service_account.json', SPRING_PROFILES_ACTIVE: 'cloud']
+		ports= ['8080']
+		//jvmFlags = ['-agentpath:./opt/cdbg/cdbg_java_agent.so', '-Dcom.google.cdbg.module=CATALOG-SERVICE', '-Dcom.google.cdbg.version=1.0']
+	}
+
+}
+
+dependencies {
+
+	annotationProcessor "org.projectlombok:lombok:1.18.10"
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.18'
+	implementation group: 'org.flywaydb', name: 'flyway-core', version: '6.0.8'
+	implementation group: 'org.springframework', name: 'spring-messaging', version: '5.2.1.RELEASE'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.10.1'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.1'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.2.1.RELEASE'
+
+	compile("org.webjars:webjars-locator-core")
+	compile("org.webjars:sockjs-client:1.0.2")
+	compile("org.webjars:stomp-websocket:2.3.3-1")
+	compile("org.webjars:bootstrap:3.3.7")
+	compile("org.webjars:jquery:3.1.0")
+
+
+	compileOnly "org.projectlombok:lombok:1.18.10"
+
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
