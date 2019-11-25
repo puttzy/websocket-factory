@@ -115,7 +115,3 @@ var contex_menu = {
 
 tree = createTree('div_tree','white',contex_menu);
 tree.drawTree();
-var l1 = tree.createNode('Level 1',false,'images/factory.jpeg',null,'parent1','factoryMenu');
-var l2 = tree.createNode('Level 2',false,'images/factory.jpeg',null,'parent2','factoryMenu');
-l1.createChildNode('Child1',false,'images/shipping.jpg','child1',null);
-l2.createChildNode('Child 2',false,'images/shipping.jpg','child2',null);

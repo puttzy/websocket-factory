@@ -1,9 +1,8 @@
 ul.tree, ul.tree ul {
 	list-style-type: none;
 	background: url(vline.png) repeat-y;
-	margin: 0;
-	padding: 0;
-	padding-left: 7px;
+	margin: 0 0 0 10px;
+	padding: 0 0 0 7px;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -24,6 +23,37 @@ ul.tree li {
 	padding: 0 12px;
 	line-height: 22px;
 	background: url(node.png) no-repeat;
+
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	letter-spacing: 0.2px;
+	word-spacing: -1px;
+	color: #000000;
+	font-weight: 800;
+	text-decoration: none;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	padding: 00px 0px 0px 10px;
+}
+
+ul.tree li ul li{
+	margin: 0;
+	padding: 0 12px;
+	line-height: 22px;
+	background: url(node.png) no-repeat;
+
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	letter-spacing: 0.2px;
+	word-spacing: -1px;
+	color: #000000;
+	font-weight: 500;
+	text-decoration: none;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	padding: 00px 0px 0px 10px;
 }
 
 ul.tree li.last {

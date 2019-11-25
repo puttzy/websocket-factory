@@ -1,13 +1,15 @@
 
 
-//Send message if "Send" is clicked
+//Send message if "update nodes" is clicked
 id("updateFactory_Button").addEventListener("click", function () {
     sendUpdateMessage();
 });
 
 
 function deleteFactory(nodeId){
-    tree.findNode(nodeId).removeNode();
+    id(nodeId).classList.add('delete-blink');
+    setTimeout(function(){ tree.findNode(nodeId).removeNode(); }, 800);
+
 }
 
 
@@ -16,26 +18,18 @@ function deleteFactory(nodeId){
 function updateNode(factory) {
     factory = JSON.parse(factory);
     var parentNode = tree.findNode(factory.id);
-    parentNode.setText(factory.name);
-    parentNode.removeChildNodes();
-    addNodes(parentNode, factory.nodes);
+    id(factory.id).classList.add('update-blink');
+    setTimeout(function(){
+        id(factory.id).classList.remove('update-blink');
+        parentNode.setText(factory.name);
+        parentNode.removeChildNodes();
+        addNodes(parentNode, factory.nodes);
+
+
+    }, 800);
+
 
 }
-
-
-
-function updateNodeFactory(numberOfNodes){
-    var json =  '{' +
-        '  "id": "1",' +
-        '  "name": "Sellers",' +
-        '  "number": ' + numberOfNodes + ',' +
-        '  "min": 148,' +
-        '  "max": 536' +
-        '}';
-
-    return JSON.parse(json);
-}
-
 
 
 function isUpdateValid() {

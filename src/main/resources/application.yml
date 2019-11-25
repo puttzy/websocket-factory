@@ -20,12 +20,17 @@ spring:
         exposure:
           include: "*"
 
+security:
+  enabled: false
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  server:
+    servlet:
+      context-path: /_ah
 
 #datasources:
 #  default:

@@ -11,7 +11,7 @@ body {
     font-size: 14px;
     max-width: 480px;
     margin: 0 0;
-    padding: 20px
+    padding: 20px;
 }
 
 input {
@@ -28,7 +28,7 @@ li {
     margin: 5px 0;
 }
 
-#chatControls {
+#mainPanel {
     overflow: auto;
     margin: 0 0 5px 0;
     float: left;
@@ -45,31 +45,20 @@ li {
     top: 11px;
 }
 
-#chat p {
-    margin: 5px 0;
-    font-weight: 300
-}
-
-#chat .timestamp {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 12px;
-}
-
-#chat article {
-    background: #f1f1f1;
-    padding: 10px;
-    margin: 10px 0;
-    border-left: 5px solid #aaa;
-    position: relative;
-    word-wrap: break-word;
-}
-
-#chat article:first-of-type {
-    background: #c9edc3;
-    border-left-color: #74a377;
-    animation: enter .2s 1;
+.root-node {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2px;
+    word-spacing: -1px;
+    color: whitesmoke;
+    background-color: cornflowerblue;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: capitalize;
+    width: 100%;
+    padding: 3px 10px;
 }
 
 @keyframes enter {
@@ -94,4 +83,60 @@ li {
     border-radius: 50%;
     display: inline-block;
     color: red;
+}
+
+
+/*  used for flash */
+@keyframes new-blink {
+    0%{
+        background-color: darkseagreen;
+        color: #ddd;
+    }
+    100%{
+        background-color: transparent;
+        color: #fff;
+    }
+}
+.new-blink{
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    /* NAME | TIME | ITERATION */
+    animation: new-blink 1s ;
+}
+
+@keyframes delete-blink {
+    0%{
+        background-color: indianred;
+        color: #ddd;
+    }
+    100%{
+        background-color: transparent;
+        color: #fff;
+        display: none;
+    }
+}
+.delete-blink{
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    /* NAME | TIME | ITERATION */
+    animation: delete-blink 1s ;
+}
+
+@keyframes update-blink {
+    0%{
+        background-color: yellow;
+    }
+    100%{
+        background-color: transparent;
+        display: none;
+    }
+}
+.update-blink{
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    /* NAME | TIME | ITERATION */
+    animation: update-blink 1s ;
 }

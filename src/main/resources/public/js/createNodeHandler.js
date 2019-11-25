@@ -1,9 +1,4 @@
 
-/*createNodeSocket.onmessage = function (msg) { addToTree(msg); };
-createNodeSocket.onclose = function () {
-    socketClosed();
-};*/
-
 //Send message if "Send" is clicked
 id("addFactory_Button").addEventListener("click", function () {
     sendCreateMessage();
@@ -12,13 +7,12 @@ id("addFactory_Button").addEventListener("click", function () {
 
 
 
-//Update the chat-panel, and the list of connected users
+//Add a node to the tree
 function addToTree(factory) {
 
     if (isJson(factory)){
-        //id("chat").innerHTML = id("chat").innerHTML + msg.data;
         addFactory(factory);
-    } else {alert('create not json:' + factory)}
+    } else {alert('create not json: ' + factory)}
 }
 
 
