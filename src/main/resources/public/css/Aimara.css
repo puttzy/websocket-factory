@@ -10,7 +10,7 @@ ul.tree, ul.tree ul {
 }
 
 li.last {
-	background-image: 'url("css/lastnode.png")';
+	background-image: url('css/lastnode.png');
 	background-repeat: no-repeat;
 }
 
@@ -34,7 +34,7 @@ ul.tree li {
 	font-style: normal;
 	font-variant: normal;
 	text-transform: none;
-	padding: 00px 0px 0px 10px;
+	padding: 0px 0 0 10px;
 }
 
 ul.tree li ul li{
@@ -53,7 +53,9 @@ ul.tree li ul li{
 	font-style: normal;
 	font-variant: normal;
 	text-transform: none;
-	padding: 00px 0px 0px 10px;
+	padding: 0 0 0 10px;
+	border-radius: 25px;
+
 }
 
 ul.tree li.last {

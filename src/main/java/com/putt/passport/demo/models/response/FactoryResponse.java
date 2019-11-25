@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 import java.util.Set;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode()
 public class FactoryResponse extends CreateFactoryRequest {
     Long id;
     Set<FactoryNodeResponse> nodes;

@@ -11,8 +11,8 @@
     <div id="mainPanel" style="width: 50%; float: left;">
         <span class="greendot" id="connection_status"></span>
 
-        <fieldset>
-            <legend>Add Factory (again)</legend>
+        <fieldset id="add-factory">
+            <legend>Add Factory</legend>
             <input id="addFactory_Name"  placeholder="factory name">
             <input id="addFactory_Nodes" placeholder="how many nodes">
             <input id="addFactory_Min" placeholder="min">
@@ -20,7 +20,7 @@
             <button id="addFactory_Button">Add Factory</button>
         </fieldset>
 
-        <fieldset>
+        <fieldset id="update-factory">
             <legend>Update Factory</legend>
             <input id="updateFactory_Id" placeholder="Node Id">
             <input id="updateFactory_Name"  placeholder="factory name">
@@ -30,7 +30,7 @@
             <button id="updateFactory_Button">Update Factory</button>
         </fieldset>
 
-        <fieldset>
+        <fieldset id="rename-factory">
             <legend>Rename Factory</legend>
             <input id="renameFactory_Id" placeholder="Node Id">
             <input id="renameFactory_Nodes"  placeholder="New Name">

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class Factory {
 
-    private FactoryDao factoryDao;
+    private final FactoryDao factoryDao;
 
 
     public Factory(FactoryDao factoryDao){

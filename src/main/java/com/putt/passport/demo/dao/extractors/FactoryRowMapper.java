@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;
 
-public class FactoryRowMapper  implements RowMapper<FactoryResponse> {
+class FactoryRowMapper  implements RowMapper<FactoryResponse> {
 
 
     @Override

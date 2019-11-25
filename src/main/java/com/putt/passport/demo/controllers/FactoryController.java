@@ -1,10 +1,10 @@
 package com.putt.passport.demo.controllers;
 
 
-import com.putt.passport.demo.models.response.FactoryResponse;
 import com.putt.passport.demo.models.request.CreateFactoryRequest;
 import com.putt.passport.demo.models.request.DeleteFactoryRequest;
 import com.putt.passport.demo.models.request.UpdateFactoryRequest;
+import com.putt.passport.demo.models.response.FactoryResponse;
 import com.putt.passport.demo.service.Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
@@ -12,14 +12,12 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
-import javax.websocket.EncodeException;
-import java.io.IOException;
 import java.util.List;
 
 @Controller
 public class FactoryController {
 
-    private Factory factory;
+    private final Factory factory;
 
     @Autowired
     public FactoryController(Factory factory) {
@@ -28,25 +26,25 @@ public class FactoryController {
 
     @MessageMapping("/add-factory")
     @SendTo("/topic/factory-added")
-    public FactoryResponse addFactory(CreateFactoryRequest createFactoryRequest) throws IOException, EncodeException {
+    public FactoryResponse addFactory(CreateFactoryRequest createFactoryRequest) {
         return factory.insertFactory(createFactoryRequest);
     }
 
     @MessageMapping("/delete-factory")
     @SendTo("/topic/factory-deleted")
-    public long removeFactory(DeleteFactoryRequest deleteFactoryRequest) throws IOException, EncodeException {
+    public long removeFactory(DeleteFactoryRequest deleteFactoryRequest) {
         return factory.deleteFactory(deleteFactoryRequest.getFactoryId());
     }
 
     @MessageMapping("/update-factory")
     @SendTo("/topic/factory-updated")
-    public FactoryResponse updateFactory(UpdateFactoryRequest updateFactoryRequest) throws IOException, EncodeException {
+    public FactoryResponse updateFactory(UpdateFactoryRequest updateFactoryRequest) {
         return factory.updateFactory(updateFactoryRequest);
     }
 
     @MessageMapping("/load/{sessionId}")
     @SendTo("/topic/load/{sessionId}")
-    public List<FactoryResponse> connect(@DestinationVariable String sessionId) throws Exception {
+    public List<FactoryResponse> connect(@DestinationVariable String sessionId) {
         return factory.getAllFactories();
     }
 

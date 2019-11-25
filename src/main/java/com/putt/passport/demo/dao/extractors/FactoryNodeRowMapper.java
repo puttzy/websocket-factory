@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class FactoryNodeRowMapper implements RowMapper<FactoryNodeResponse> {
+class FactoryNodeRowMapper implements RowMapper<FactoryNodeResponse> {
 
 
     @Override

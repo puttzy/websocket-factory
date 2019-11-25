@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Util {
+class Util {
 
     public static double getRandomIntegerBetweenRange(double min, double max){
         return (int)(Math.random()*((max-min)+1))+min;
@@ -21,7 +21,7 @@ public class Util {
 
             nodes.add(node);
         }
-        return new HashSet<FactoryNodeResponse>(nodes);
+        return new HashSet<>(nodes);
     }
 
 

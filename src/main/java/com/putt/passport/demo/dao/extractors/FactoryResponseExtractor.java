@@ -7,10 +7,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FactoryResponseExtractor implements ResultSetExtractor<List<FactoryResponse>> {
 
@@ -29,6 +26,7 @@ public class FactoryResponseExtractor implements ResultSetExtractor<List<Factory
 
             if (factoryResponse == null){
                 factoryResponse = factoryRowMapper.mapRow(rs, factories.size());
+                factoryResponse.setNodes(new HashSet<>());
             }
 
             FactoryNodeResponse factoryNodeResponse = factoryNodeRowMapper.mapRow(rs, factoryResponse.getNodes().size());

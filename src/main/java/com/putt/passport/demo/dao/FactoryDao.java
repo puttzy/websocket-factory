@@ -20,9 +20,11 @@ import java.util.Set;
 @Repository
 public class FactoryDao {
 
-
-    @Autowired
     JdbcTemplate jdbcTemplate;
+
+    public FactoryDao(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     private static final String GET_ALL = "Select f.factory_id\n" +
             ", f.name\n" +
@@ -65,12 +67,11 @@ public class FactoryDao {
         return jdbcTemplate.query(GET_ALL+ ORDER_BY, new FactoryResponseExtractor());
     }
 
-    public long deleteFactoryNodes(Long factoryId){
+    public void deleteFactoryNodes(Long factoryId){
         jdbcTemplate.update(
                 connection ->
                         singleParamQuery(connection, DELETE_FACTORY_NODES, factoryId));
 
-        return factoryId;
     }
 
     public long deleteFactory(Long factoryId){
@@ -80,7 +81,7 @@ public class FactoryDao {
         return factoryId;
     }
 
-    public UpdateFactoryRequest updateFactory(UpdateFactoryRequest updateFactoryRequest){
+    public void updateFactory(UpdateFactoryRequest updateFactoryRequest){
         deleteFactoryNodes(updateFactoryRequest.getId());
         jdbcTemplate.update(
                 connection -> {
@@ -94,7 +95,6 @@ public class FactoryDao {
                 }
         );
 
-        return updateFactoryRequest;
     }
 
     public Long insertFactory(FactoryResponse factoryResponse){
@@ -115,8 +115,7 @@ public class FactoryDao {
     }
 
     public void insertFactoryNodes(Set<FactoryNodeResponse> factoryNodeResponses, long factoryId){
-        factoryNodeResponses.forEach(factoryNode -> {
-        jdbcTemplate.update(
+        factoryNodeResponses.forEach(factoryNode -> jdbcTemplate.update(
                 connection -> {
                     PreparedStatement ps = connection
                             .prepareStatement(INSERT_FACTORY_NODES);
@@ -125,8 +124,7 @@ public class FactoryDao {
 
                     return ps;
                 }
-            );
-        });
+            ));
     }
 
 
