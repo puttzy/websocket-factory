@@ -1,10 +1,10 @@
 package com.putt.passport.demo.dao;
 
 import com.putt.passport.demo.dao.extractors.FactoryResponseExtractor;
-import com.putt.passport.demo.models.response.FactoryResponse;
-import com.putt.passport.demo.models.response.FactoryNodeResponse;
+import com.putt.passport.demo.models.request.RenameFactoryRequest;
 import com.putt.passport.demo.models.request.UpdateFactoryRequest;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.putt.passport.demo.models.response.FactoryNodeResponse;
+import com.putt.passport.demo.models.response.FactoryResponse;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Repository
@@ -46,7 +47,7 @@ public class FactoryDao {
     private static final String INSERT_FACTORY_NODES = "insert into factory_nodes " +
             " (factory_id, value) values (?, ?)";
 
-    private static final String RENAME_FACTORY = "update factory set name = ? ";
+    private static final String RENAME_FACTORY = "update factory set name = ? where factory_id = ? ";
     private static final String UPDATE_FACTORY = "update factory set name = ?, minRange = ? , maxRange = ? where factory_id = ?";
     private static final String DELETE_FACTORY = "delete from factory where factory_id = ? ";
     private static final String DELETE_FACTORY_NODES = "delete from factory_nodes where factory_id = ? ";
@@ -58,9 +59,9 @@ public class FactoryDao {
         return ps;
     }
 
-    public List<FactoryResponse> getFactoriesAndNodesByFactoryId(Long factoryId){
-        return jdbcTemplate.query(
-                connection -> singleParamQuery(connection, GET_ALL + WHERE + ORDER_BY, factoryId), new FactoryResponseExtractor());
+    public FactoryResponse getFactoryAndNodesByFactoryId(Long factoryId){
+        return Objects.requireNonNull(jdbcTemplate.query(
+                connection -> singleParamQuery(connection, GET_ALL + WHERE + ORDER_BY, factoryId), new FactoryResponseExtractor())).get(0);
     }
 
     public List<FactoryResponse> getAllFactoriesAndNodes(){
@@ -91,6 +92,19 @@ public class FactoryDao {
                     ps.setInt(2, updateFactoryRequest.getMin());
                     ps.setInt(3, updateFactoryRequest.getMax());
                     ps.setLong(4, updateFactoryRequest.getId());
+                    return ps;
+                }
+        );
+
+    }
+
+    public void renameFactory(RenameFactoryRequest renameFactoryRequest){
+        jdbcTemplate.update(
+                connection -> {
+                    PreparedStatement ps = connection
+                            .prepareStatement(RENAME_FACTORY);
+                    ps.setString(1, renameFactoryRequest.getName());
+                    ps.setLong(2, renameFactoryRequest.getId());
                     return ps;
                 }
         );

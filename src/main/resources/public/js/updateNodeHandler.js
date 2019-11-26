@@ -1,9 +1,17 @@
-
-
-//Send message if "update nodes" is clicked
-id("updateFactory_Button").addEventListener("click", function () {
-    sendUpdateMessage();
-});
+function regenerateFactory(node){
+    redoFactoryModal.node = node;
+    redoFactoryModal.setContent(''+
+        '<fieldset id="update-factory">' +
+        '<legend>Regenerate Factory:  "'+node.text+'"</legend>' +
+        '<input id="updateFactory_Id" placeholder="Node Id" value="'+node.tag+'" hidden>' +
+        '<input id="updateFactory_Name"  placeholder="factory name">' +
+        '<input id="updateFactory_Nodes" placeholder="How many nodes">' +
+        '<input id="updateFactory_Min" placeholder="min">' +
+        '<input id="updateFactory_Max" placeholder="max">' +
+        '</fieldset>'
+    );
+    redoFactoryModal.open();
+}
 
 
 function deleteFactory(nodeId){
@@ -94,11 +102,32 @@ function updateFactoryRequest() {
     } else {
         throw "Invalid input";
     }
-
-
 }
 
 function deleteFactoryRequest(node) {
         this.factoryId = node.tag;
 }
 
+
+
+function renameFactory(node){
+    renameFactoryModal.node = node;
+    renameFactoryModal.setContent(''+
+        '<fieldset id="rename-factory"> '  +
+        '<legend>Rename Factory "'+node.text+'"</legend> '  +
+        '<input id="renameFactory_Id" placeholder="Node Id" hidden value="'+node.tag+'"> '  +
+        '<input id="renameFactory_Name"  placeholder="New Name"> '  +
+        '</fieldset> ' 
+    );
+    renameFactoryModal.open();
+}
+
+function renameFactoryRequest() {
+
+    this.id = id("renameFactory_Id").value;
+    this.name = id("renameFactory_Name").value;
+
+    id("renameFactory_Id").value = '';
+    id("renameFactory_Name").value = '';
+
+}

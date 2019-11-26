@@ -31,6 +31,22 @@ function sendDeleteMessage(node) {
 
 //Send a message if it's not empty, then clear the input field
 function sendUpdateMessage() {
-    stompClient.send("/app/update-factory",  {}, JSON.stringify(new updateFactoryRequest()));
+    try {
+        stompClient.send("/app/update-factory", {}, JSON.stringify(new updateFactoryRequest()));
+        return true;
+    } catch (e) {
+
+    }
+    return false;
 }
 
+
+function sendRenameMessage() {
+    try {
+        stompClient.send("/app/rename-factory", {}, JSON.stringify(new renameFactoryRequest()));
+        return true;
+    } catch (e) {
+
+    }
+    return false;
+}

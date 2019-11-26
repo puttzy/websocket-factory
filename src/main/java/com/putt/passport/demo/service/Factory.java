@@ -1,6 +1,7 @@
 package com.putt.passport.demo.service;
 
 import com.putt.passport.demo.dao.FactoryDao;
+import com.putt.passport.demo.models.request.RenameFactoryRequest;
 import com.putt.passport.demo.models.response.FactoryResponse;
 import com.putt.passport.demo.models.request.CreateFactoryRequest;
 import com.putt.passport.demo.models.request.UpdateFactoryRequest;
@@ -31,14 +32,21 @@ public class Factory {
         FactoryResponse factoryResponse = createFactory(requestFactory);
         Long factoryId = factoryDao.insertFactory(factoryResponse);
         factoryDao.insertFactoryNodes(factoryResponse.getNodes(), factoryId);
-        return factoryDao.getFactoriesAndNodesByFactoryId(factoryId).get(0);
+        return factoryDao.getFactoryAndNodesByFactoryId(factoryId);
     }
+
+    public FactoryResponse renameFactory(RenameFactoryRequest renameFactoryRequest){
+
+        factoryDao.renameFactory(renameFactoryRequest);
+        return factoryDao.getFactoryAndNodesByFactoryId(renameFactoryRequest.getId());
+    }
+
 
     public FactoryResponse updateFactory(UpdateFactoryRequest updateFactoryRequest){
         factoryDao.deleteFactoryNodes(updateFactoryRequest.getId());
         factoryDao.updateFactory(updateFactoryRequest);
         factoryDao.insertFactoryNodes(Util.generateNodes(updateFactoryRequest.getNumber(), updateFactoryRequest.getMin(), updateFactoryRequest.getMax(), updateFactoryRequest.getId()), updateFactoryRequest.getId());
-        return factoryDao.getFactoriesAndNodesByFactoryId(updateFactoryRequest.getId()).get(0);
+        return factoryDao.getFactoryAndNodesByFactoryId(updateFactoryRequest.getId());
 
     }
 

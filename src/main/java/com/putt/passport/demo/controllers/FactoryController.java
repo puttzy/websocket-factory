@@ -3,6 +3,7 @@ package com.putt.passport.demo.controllers;
 
 import com.putt.passport.demo.models.request.CreateFactoryRequest;
 import com.putt.passport.demo.models.request.DeleteFactoryRequest;
+import com.putt.passport.demo.models.request.RenameFactoryRequest;
 import com.putt.passport.demo.models.request.UpdateFactoryRequest;
 import com.putt.passport.demo.models.response.FactoryResponse;
 import com.putt.passport.demo.service.Factory;
@@ -28,6 +29,12 @@ public class FactoryController {
     @SendTo("/topic/factory-added")
     public FactoryResponse addFactory(CreateFactoryRequest createFactoryRequest) {
         return factory.insertFactory(createFactoryRequest);
+    }
+
+    @MessageMapping("/rename-factory")
+    @SendTo("/topic/factory-updated")
+    public FactoryResponse renameFactory(RenameFactoryRequest renameFactoryRequest) {
+        return factory.renameFactory(renameFactoryRequest);
     }
 
     @MessageMapping("/delete-factory")
