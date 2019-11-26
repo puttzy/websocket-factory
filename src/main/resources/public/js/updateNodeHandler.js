@@ -15,6 +15,8 @@ function regenerateFactory(node){
 
 
 function deleteFactory(nodeId){
+
+    removeClasses('node_selected')
     id(nodeId).classList.add('delete-blink');
     setTimeout(function(){ tree.findNode(nodeId).removeNode(); }, 800);
 
@@ -26,6 +28,7 @@ function deleteFactory(nodeId){
 function updateNode(factory) {
     factory = JSON.parse(factory);
     var parentNode = tree.findNode(factory.id);
+    removeClasses('node_selected')
     id(factory.id).classList.add('update-blink');
     setTimeout(function(){
         id(factory.id).classList.remove('update-blink');

@@ -14,7 +14,7 @@ public class FactoryResponse extends CreateFactoryRequest {
 
     @Data
     @NoArgsConstructor
-    public class FactoryNode {
+    public static class FactoryNode {
 
         Long id;
         Long value;
@@ -26,7 +26,7 @@ public class FactoryResponse extends CreateFactoryRequest {
             this.factoryId = factoryId;
         }
 
-        public FactoryNode(long value, long factoryId){
+        public FactoryNode(long factoryId, long value){
             this.value = value;
             this.factoryId = factoryId;
         }

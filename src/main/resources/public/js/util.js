@@ -13,9 +13,7 @@ function id(id) {
 }
 
 id("connection_status").addEventListener("click", function () {
-    //initConnections();
-    //id("connection_status").classList.replace('reddot', 'greendot' );
-
+    requirementsModal.open();
 });
 
 // Short-circuiting, and saving a parse operation
@@ -81,6 +79,22 @@ function html_encode(str){
     var div = document.createElement("div");
     div[("textContent" in div) ? "textContent" : "innerText"] = str;
     return div.innerHTML;
+}
+
+
+function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+
+function removeClasses(classToRemove) {
+    var elements = document.getElementsByClassName(classToRemove)
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove(classToRemove);
+    }
 }
 
 

@@ -20,7 +20,7 @@ import java.util.Set;
 @Repository
 public class FactoryDao {
 
-    JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public FactoryDao(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;

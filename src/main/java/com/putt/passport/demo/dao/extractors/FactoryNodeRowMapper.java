@@ -11,7 +11,7 @@ class FactoryNodeRowMapper implements RowMapper<FactoryResponse.FactoryNode> {
 
     @Override
     public FactoryResponse.FactoryNode mapRow(ResultSet rs, int rowNum) throws SQLException {
-        FactoryResponse.FactoryNode factoryNode = new FactoryResponse().new FactoryNode();
+        FactoryResponse.FactoryNode factoryNode = new FactoryResponse.FactoryNode();
         factoryNode.setId(rs.getLong("node_id"));
         factoryNode.setValue(rs.getLong("value"));
         factoryNode.setFactoryId(rs.getLong("factory_id"));

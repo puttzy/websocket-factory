@@ -1,14 +1,3 @@
-
-
-//Add a node to the tree
-function addToTree(factory) {
-
-    if (isJson(factory)){
-        addFactory(factory);
-    } else {alert('create not json: ' + factory)}
-}
-
-
 function isCreateValid() {
     var numNodes = id("addFactory_Nodes").value.trim();
     var min = id("addFactory_Min").value.trim();
