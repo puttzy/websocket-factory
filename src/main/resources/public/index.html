@@ -5,20 +5,14 @@
     <title>WebSocket Demo</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/Aimara.css">
+    <link rel="stylesheet" href="css/tingle.css" />
 </head>
+
+
 <body>
 <div style="width: 100%">
     <div id="mainPanel" style="width: 50%; float: left;">
-        <span class="greendot" id="connection_status"></span>
-
-        <fieldset id="add-factory">
-            <legend>Add Factory</legend>
-            <input id="addFactory_Name"  placeholder="factory name">
-            <input id="addFactory_Nodes" placeholder="how many nodes">
-            <input id="addFactory_Min" placeholder="min">
-            <input id="addFactory_Max" placeholder="max">
-            <button id="addFactory_Button">Add Factory</button>
-        </fieldset>
+        <span class="greendot" id="connection_status" ></span>
 
         <fieldset id="update-factory">
             <legend>Update Factory</legend>
@@ -43,11 +37,33 @@
 </div>
 
 
+
+
+<!--
+
+<div class="modal">
+    <div class="modal-content">
+        <span class="close-button">×</span>
+
+                <fieldset id="add-factory">
+                    <legend>Add Factory</legend>
+                    <input id="addFactory_Name"  placeholder="Factory Name">
+                    <input id="addFactory_Nodes" placeholder="how many nodes">
+                    <input id="addFactory_Min" placeholder="min">
+                    <input id="addFactory_Max" placeholder="max">
+                    <button id="addFactory_Button">Add Factory</button>
+                </fieldset>
+
+
+    </div>
+</div>-->
+
 <noscript><h2 style="color: #ff0000">
     Seems your browser doesn't support Javascript!
     Websocket relies on Javascript being enabled.
     Please enable Javascript and reload this page!</h2></noscript>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+<script src="js/tingle.js"></script>
 <script src="js/stomp.js"></script>
 <script src="js/util.js"></script>
 <script src="js/createNodeHandler.js"></script>
@@ -57,6 +73,9 @@
 <script src="js/contextMenu.js"></script>
 <script src="js/app.js"></script>
 <script src="js/socketDefs.js"></script>
+
+<script src="js/modalDefs.js"></script>
+
 
 
 </body>

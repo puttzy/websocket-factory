@@ -9,7 +9,8 @@ var contex_menu = {
                 text : 'Delete Factory',
                 icon: 'images/delete.png',
                 action : function(node) {
-                    sendDeleteMessage(node);
+                    showConfirmDeleteDialog(node);
+                    //sendDeleteMessage(node);
                 }
             },{
                 text : 'Rename Factory',

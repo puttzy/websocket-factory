@@ -115,7 +115,8 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 			this.rendered = true;
 
 			var div_tree = document.getElementById(this.div);
-			div_tree.innerHTML = '<div class="root-node">Root<div style="display:inline-block; float: right;">{<img src="images/create.png" style="height: 15px">create new factory}</div></div>';
+
+			div_tree.innerHTML = '<div class="root-node">Root<div style="display:inline-block; float: right; " onclick="createModal.open()">{<img src="images/create.png" style="height: 15px" >Create new factory}</div></div>';
 
 			ulElement = createSimpleElement('ul',this.name,'tree');
 			this.ulElement = ulElement;

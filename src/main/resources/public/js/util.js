@@ -13,8 +13,9 @@ function id(id) {
 }
 
 id("connection_status").addEventListener("click", function () {
-    initConnections();
-    id("connection_status").classList.replace('reddot', 'greendot' );
+    //initConnections();
+    //id("connection_status").classList.replace('reddot', 'greendot' );
+
 });
 
 // Short-circuiting, and saving a parse operation
@@ -72,6 +73,14 @@ function addNodes(factory, nodes){
         var node = nodes[x];
         factory.createChildNode(node.value, false, 'images/shipping.jpg', 'parent' + node.id + '_' + node.id, null);
     }
+}
+
+
+//ensures that we escape all html characters so that we don't allow the user to inject javascript or stylized html
+function html_encode(str){
+    var div = document.createElement("div");
+    div[("textContent" in div) ? "textContent" : "innerText"] = str;
+    return div.innerHTML;
 }
 
 

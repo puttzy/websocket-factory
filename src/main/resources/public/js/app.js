@@ -5,15 +5,25 @@ function sendCreateMessage() {
     try {
         var message = new createFactoryRequest();
         stompClient.send("/app/add-factory",  {}, JSON.stringify(message));
+        return true;
     } catch (e) {
 
     }
+    return false;
+}
+
+function showConfirmDeleteDialog(node){
+    deleteModal.node = node;
+    deleteModal.setContent('<h1>Are you sure you wish to delete the factory named: "'+node.text+'"?</h1>');
+    deleteModal.open();
 }
 
 
 function sendDeleteMessage(node) {
+
     try {
         stompClient.send("/app/delete-factory",  {}, JSON.stringify(new deleteFactoryRequest(node)));
+        deleteModal.close();
     } catch (e) {
 
     }
@@ -23,3 +33,4 @@ function sendDeleteMessage(node) {
 function sendUpdateMessage() {
     stompClient.send("/app/update-factory",  {}, JSON.stringify(new updateFactoryRequest()));
 }
+

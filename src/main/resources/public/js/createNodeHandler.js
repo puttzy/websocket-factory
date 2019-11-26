@@ -2,6 +2,7 @@
 //Send message if "Send" is clicked
 id("addFactory_Button").addEventListener("click", function () {
     sendCreateMessage();
+
 });
 
 
@@ -23,9 +24,6 @@ function isCreateValid() {
     var name = id("addFactory_Name").value.trim();
 
     id("addFactory_Name").value = name.trim();
-
-
-
     var areInputsValid = true;
 
     if (isBlank(name, 'Factory Name')){
@@ -68,7 +66,7 @@ function createFactoryRequest() {
 
     if (isCreateValid()) {
 
-        this.name = id("addFactory_Name").value;
+        this.name = html_encode(id("addFactory_Name").value);
         this.number = id("addFactory_Nodes").value;
         this.min = id("addFactory_Min").value;
         this.max = id("addFactory_Max").value;
@@ -80,9 +78,9 @@ function createFactoryRequest() {
     } else {
         throw "Invalid input";
     }
-
-
 }
+
+
 
 
 
