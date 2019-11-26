@@ -1,20 +1,20 @@
 package com.putt.passport.demo.dao.extractors;
 
-import com.putt.passport.demo.models.response.FactoryNodeResponse;
+import com.putt.passport.demo.models.response.FactoryResponse;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-class FactoryNodeRowMapper implements RowMapper<FactoryNodeResponse> {
+class FactoryNodeRowMapper implements RowMapper<FactoryResponse.FactoryNode> {
 
 
     @Override
-    public FactoryNodeResponse mapRow(ResultSet rs, int rowNum) throws SQLException {
-        FactoryNodeResponse factoryNodeResponse = new FactoryNodeResponse();
-        factoryNodeResponse.setId(rs.getLong("node_id"));
-        factoryNodeResponse.setValue(rs.getLong("value"));
-        factoryNodeResponse.setFactoryId(rs.getLong("factory_id"));
-        return factoryNodeResponse;
+    public FactoryResponse.FactoryNode mapRow(ResultSet rs, int rowNum) throws SQLException {
+        FactoryResponse.FactoryNode factoryNode = new FactoryResponse().new FactoryNode();
+        factoryNode.setId(rs.getLong("node_id"));
+        factoryNode.setValue(rs.getLong("value"));
+        factoryNode.setFactoryId(rs.getLong("factory_id"));
+        return factoryNode;
     }
 }

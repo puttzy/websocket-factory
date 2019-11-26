@@ -64,14 +64,14 @@ function addFactory(rawFactoryJSON){
         factoryJson = JSON.parse(rawFactoryJSON);
     }
 
-    var factory = tree.createNode(factoryJson.name,false,'images/factory.jpeg',null,factoryJson.id,'factoryMenu');
+    var factory = tree.createNode(factoryJson.name,false,'images/tree_factory.jpeg',null,factoryJson.id,'factoryMenu');
     addNodes(factory, factoryJson.nodes);
 }
 
 function addNodes(factory, nodes){
     for (var x= 0 ; nodes !== null && x < nodes.length ; x++){
         var node = nodes[x];
-        factory.createChildNode(node.value, false, 'images/shipping.jpg', 'parent' + node.id + '_' + node.id, null);
+        factory.createChildNode(node.value, false, 'images/tree_shipping.jpg', 'parent' + node.id + '_' + node.id, null);
     }
 }
 

@@ -32,6 +32,12 @@ management:
     servlet:
       context-path: /_ah
 
+server:
+  servlet:
+    jsp:
+      init-parameters:
+        listings: true
+
 #datasources:
 #  default:
 #    url: jdbc:mysql://104.196.220.75/passport

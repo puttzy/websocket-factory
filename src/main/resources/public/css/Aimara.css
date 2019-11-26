@@ -1,6 +1,6 @@
 ul.tree, ul.tree ul {
 	list-style-type: none;
-	background: url(vline.png) repeat-y;
+	background: url('../images/tree_vline.png') repeat-y;
 	margin: 0 0 0 10px;
 	padding: 0 0 0 7px;
 	-webkit-user-select: none;
@@ -10,7 +10,7 @@ ul.tree, ul.tree ul {
 }
 
 li.last {
-	background-image: url('css/lastnode.png');
+	background-image: url('../images/tree_lastnode.png');
 	background-repeat: no-repeat;
 }
 
@@ -22,7 +22,7 @@ ul.tree li {
 	margin: 0;
 	padding: 0 12px;
 	line-height: 22px;
-	background: url(node.png) no-repeat;
+	background: url('../images/tree_node.png') no-repeat;
 
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 11px;
@@ -41,7 +41,7 @@ ul.tree li ul li{
 	margin: 0;
 	padding: 0 12px;
 	line-height: 22px;
-	background: url(node.png) no-repeat;
+	background: url('../images/tree_node.png') no-repeat;
 
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 11px;
@@ -60,7 +60,7 @@ ul.tree li ul li{
 
 
 ul.tree li.last {
-	background: #fff url(lastnode.png) no-repeat;
+	background: #fff url('../images/tree_lastnode.png') no-repeat;
 }
 
 img.exp_col {

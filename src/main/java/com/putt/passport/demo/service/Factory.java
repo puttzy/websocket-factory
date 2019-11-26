@@ -24,7 +24,6 @@ public class Factory {
     }
 
     public List<FactoryResponse> getAllFactories(){
-
         return factoryDao.getAllFactoriesAndNodes();
     }
 
@@ -45,7 +44,7 @@ public class Factory {
     public FactoryResponse updateFactory(UpdateFactoryRequest updateFactoryRequest){
         factoryDao.deleteFactoryNodes(updateFactoryRequest.getId());
         factoryDao.updateFactory(updateFactoryRequest);
-        factoryDao.insertFactoryNodes(Util.generateNodes(updateFactoryRequest.getNumber(), updateFactoryRequest.getMin(), updateFactoryRequest.getMax(), updateFactoryRequest.getId()), updateFactoryRequest.getId());
+        factoryDao.insertFactoryNodes(Util.generateNodes(updateFactoryRequest), updateFactoryRequest.getId());
         return factoryDao.getFactoryAndNodesByFactoryId(updateFactoryRequest.getId());
 
     }
@@ -56,7 +55,7 @@ public class Factory {
         factoryResponse.setMin(requestFactory.getMin());
         factoryResponse.setName(requestFactory.getName());
         factoryResponse.setNumber(requestFactory.getNumber());
-        factoryResponse.setNodes(Util.generateNodes(requestFactory.getNumber(), requestFactory.getMin(), requestFactory.getMax(), 1));
+        factoryResponse.setNodes(Util.generateNodes(requestFactory));
         return factoryResponse;
     }
 

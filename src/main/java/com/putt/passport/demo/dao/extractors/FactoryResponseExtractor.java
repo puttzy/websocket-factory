@@ -1,7 +1,6 @@
 package com.putt.passport.demo.dao.extractors;
 
 import com.putt.passport.demo.models.response.FactoryResponse;
-import com.putt.passport.demo.models.response.FactoryNodeResponse;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
@@ -29,9 +28,9 @@ public class FactoryResponseExtractor implements ResultSetExtractor<List<Factory
                 factoryResponse.setNodes(new HashSet<>());
             }
 
-            FactoryNodeResponse factoryNodeResponse = factoryNodeRowMapper.mapRow(rs, factoryResponse.getNodes().size());
+            FactoryResponse.FactoryNode factoryNode = factoryNodeRowMapper.mapRow(rs, factoryResponse.getNodes().size());
 
-            factoryResponse.getNodes().add(factoryNodeResponse);
+            factoryResponse.getNodes().add(factoryNode);
             factories.put(factoryId, factoryResponse);
 
         }

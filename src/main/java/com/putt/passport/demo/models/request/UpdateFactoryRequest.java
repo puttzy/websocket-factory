@@ -3,12 +3,7 @@ package com.putt.passport.demo.models.request;
 import lombok.Data;
 
 @Data
-public class UpdateFactoryRequest {
+public class UpdateFactoryRequest extends CreateFactoryRequest {
 
     long id;
-    String name;
-    int number;
-    int min;
-    int max;
-
 }

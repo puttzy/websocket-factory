@@ -1,6 +1,8 @@
 package com.putt.passport.demo.service;
 
-import com.putt.passport.demo.models.response.FactoryNodeResponse;
+import com.putt.passport.demo.models.request.CreateFactoryRequest;
+import com.putt.passport.demo.models.request.UpdateFactoryRequest;
+import com.putt.passport.demo.models.response.FactoryResponse;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,10 +16,10 @@ class Util {
 
     }
 
-    public  static Set<FactoryNodeResponse> generateNodes(int numberOfNodes, int min, int max, long factoryId){
-        List<FactoryNodeResponse> nodes = new ArrayList<>();
-        for (int i = 0 ; i < numberOfNodes ; i++){
-            FactoryNodeResponse node = new FactoryNodeResponse((long)i, (long)Util.getRandomIntegerBetweenRange(min, max), factoryId);
+    public  static Set<FactoryResponse.FactoryNode> generateNodes(CreateFactoryRequest updateFactoryRequest){
+        List<FactoryResponse.FactoryNode> nodes = new ArrayList<>();
+        for (int i = 0 ; i < updateFactoryRequest.getNumber() ; i++){
+            FactoryResponse.FactoryNode  node = new FactoryResponse().new FactoryNode((long)i, (long)Util.getRandomIntegerBetweenRange(updateFactoryRequest.getMin(), updateFactoryRequest.getMax()));
 
             nodes.add(node);
         }

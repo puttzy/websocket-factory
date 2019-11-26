@@ -1,12 +1,4 @@
 
-//Send message if "Send" is clicked
-id("addFactory_Button").addEventListener("click", function () {
-    sendCreateMessage();
-
-});
-
-
-
 
 //Add a node to the tree
 function addToTree(factory) {

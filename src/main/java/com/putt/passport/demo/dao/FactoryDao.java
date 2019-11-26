@@ -3,7 +3,6 @@ package com.putt.passport.demo.dao;
 import com.putt.passport.demo.dao.extractors.FactoryResponseExtractor;
 import com.putt.passport.demo.models.request.RenameFactoryRequest;
 import com.putt.passport.demo.models.request.UpdateFactoryRequest;
-import com.putt.passport.demo.models.response.FactoryNodeResponse;
 import com.putt.passport.demo.models.response.FactoryResponse;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -52,7 +51,7 @@ public class FactoryDao {
     private static final String DELETE_FACTORY = "delete from factory where factory_id = ? ";
     private static final String DELETE_FACTORY_NODES = "delete from factory_nodes where factory_id = ? ";
 
-    private PreparedStatement singleParamQuery(Connection connection, String query, Long factoryId) throws SQLException {
+    private PreparedStatement singleParamFactoryIdQuery(Connection connection, String query, Long factoryId) throws SQLException {
         PreparedStatement ps = connection
                 .prepareStatement(query);
         ps.setLong(1, factoryId);
@@ -61,7 +60,7 @@ public class FactoryDao {
 
     public FactoryResponse getFactoryAndNodesByFactoryId(Long factoryId){
         return Objects.requireNonNull(jdbcTemplate.query(
-                connection -> singleParamQuery(connection, GET_ALL + WHERE + ORDER_BY, factoryId), new FactoryResponseExtractor())).get(0);
+                connection -> singleParamFactoryIdQuery(connection, GET_ALL + WHERE + ORDER_BY, factoryId), new FactoryResponseExtractor())).get(0);
     }
 
     public List<FactoryResponse> getAllFactoriesAndNodes(){
@@ -71,19 +70,18 @@ public class FactoryDao {
     public void deleteFactoryNodes(Long factoryId){
         jdbcTemplate.update(
                 connection ->
-                        singleParamQuery(connection, DELETE_FACTORY_NODES, factoryId));
+                        singleParamFactoryIdQuery(connection, DELETE_FACTORY_NODES, factoryId));
 
     }
 
     public long deleteFactory(Long factoryId){
         jdbcTemplate.update(
                 connection ->
-                        singleParamQuery(connection, DELETE_FACTORY, factoryId));
+                        singleParamFactoryIdQuery(connection, DELETE_FACTORY, factoryId));
         return factoryId;
     }
 
     public void updateFactory(UpdateFactoryRequest updateFactoryRequest){
-        deleteFactoryNodes(updateFactoryRequest.getId());
         jdbcTemplate.update(
                 connection -> {
                     PreparedStatement ps = connection
@@ -128,7 +126,7 @@ public class FactoryDao {
         return keyHolder.getKey().longValue();
     }
 
-    public void insertFactoryNodes(Set<FactoryNodeResponse> factoryNodeResponses, long factoryId){
+    public void insertFactoryNodes(Set<FactoryResponse.FactoryNode> factoryNodeResponses, long factoryId){
         factoryNodeResponses.forEach(factoryNode -> jdbcTemplate.update(
                 connection -> {
                     PreparedStatement ps = connection

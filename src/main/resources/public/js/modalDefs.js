@@ -178,7 +178,7 @@ renameFactoryModal.setContent(''+
 );
 
 // add a button
-renameFactoryModal.addFooterBtn('Regenerate Factory', 'tingle-btn tingle-btn--primary', function() {
+renameFactoryModal.addFooterBtn('Rename Factory', 'tingle-btn tingle-btn--primary', function() {
 
     if (sendRenameMessage()){
         renameFactoryModal.close();
