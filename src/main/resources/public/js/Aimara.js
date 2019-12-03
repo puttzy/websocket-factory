@@ -118,8 +118,8 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 
 			div_tree.innerHTML = '<div class="root-node"> ' +
 				' Root ' +
-				' 	<div style="display:inline-block; float: right;font-size:.3em; " onclick="createModal.open()"> ' +
-				'		{<img src="../images/menu_create.png" style="height: 15px; " >New Factory} ' +
+				' 	<div style="text-align: left; font-size: 12px; " onclick="createModal.open()"> ' +
+				'		<img src="../images/menu_create.png" style="height: 15px; " >New' +
 				'   </div> ' +
 				' </div>';
 
