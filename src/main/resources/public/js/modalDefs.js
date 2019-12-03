@@ -63,10 +63,27 @@ var createModal = new tingle.modal({
 createModal.setContent(''+
     '<fieldset id="add-factory">' +
     '<legend>Add Factory</legend>' +
-    '<input id="addFactory_Name"  placeholder="Factory Name">' +
-    '<input id="addFactory_Nodes" placeholder="how many nodes">' +
-    '<input id="addFactory_Min" placeholder="min">' +
-    '<input id="addFactory_Max" placeholder="max">' +
+    '<label for="addFactory_Name" class="form_label">New Name</label><input id="addFactory_Name"  placeholder="Factory Name" maxlength="50" style="width: 60%"> <br/>' +
+    '<label for="addFactory_Nodes" class="form_label">Number Of Nodes</label>' +
+    '   <select id="addFactory_Nodes" placeholder="How many nodes">' +
+    '       <option> 1 </option>' +
+    '       <option> 2 </option>' +
+    '       <option> 3 </option>' +
+    '       <option> 4 </option>' +
+    '       <option> 5 </option>' +
+    '       <option> 6 </option>' +
+    '       <option> 7 </option>' +
+    '       <option> 8 </option>' +
+    '       <option> 9 </option>' +
+    '       <option> 10 </option>' +
+    '       <option> 11 </option>' +
+    '       <option> 12 </option>' +
+    '       <option> 13 </option>' +
+    '       <option> 14 </option>' +
+    '       <option> 15 </option>' +
+    '       </select>' +
+    '<label for="addFactory_Min" class="form_label" style="padding-left: 10%">Range</label><input id="addFactory_Min" placeholder="min" style=" width: 10%">' +
+    ' - <input id="addFactory_Max" placeholder="max" style="width: 10%">' +
     '</fieldset>'
     );
 

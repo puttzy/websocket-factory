@@ -1,44 +1,45 @@
 function isCreateValid() {
-    var numNodes = id("addFactory_Nodes").value.trim();
+    setErrorState(id("addFactory_Min"), false);
+    setErrorState(id("addFactory_Max"), false);
+    setErrorState(id("addFactory_Name"), false);
+
     var min = id("addFactory_Min").value.trim();
     var max = id("addFactory_Max").value.trim();
     var name = id("addFactory_Name").value.trim();
 
     id("addFactory_Name").value = name.trim();
+    var errMsg = '';
     var areInputsValid = true;
 
-    if (isBlank(name, 'Factory Name')){
+    if (name === ""){
+        errMsg += 'Factory Name is required.';
         areInputsValid = false;
-    }
-
-    if (! isInt(numNodes)){
-        alert('factory Nodes must be a number INT between 1 and 15 (inclusive)');
-        numNodes = '';
-        areInputsValid = false;
-    } else if (numNodes  < 1 || numNodes > 15) {
-        alert('factory Nodes must be a number INT between 1 and 15 (inclusive)');
-        numNodes = '';
-        areInputsValid = false;
+        setErrorState(id("addFactory_Name"), true);
     }
 
     if (! isInt(min)) {
-        alert('Minimum range must be an integer less than max range');
-        min = '';
+        errMsg += '\nMinimum range must be an INT less than max range.';
         areInputsValid = false;
+        setErrorState(id("addFactory_Min"), true);
     }
 
     if (! isInt(max)) {
-        alert('Maximum range must be an integer greater than max range');
-        max = '';
+        errMsg += '\nMaximum range must be an INT greater than min range.';
         areInputsValid = false;
+        setErrorState(id("addFactory_Min"), true);
     }
 
     if (max <= min) {
-        alert('Minimum range must be less than maximum range');
-        max = '';
+        errMsg += '\nMinimum range must be less than maximum range.';
+
         areInputsValid = false;
+        setErrorState(id("addFactory_Min"), true);
+        setErrorState(id("addFactory_Max"), true);
     }
 
+    if (!areInputsValid){
+        alert(errMsg);
+    }
     return areInputsValid;
 }
 

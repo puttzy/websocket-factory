@@ -23,9 +23,6 @@ function regenerateFactory(node){
         '       <option> 14 </option>' +
         '       <option> 15 </option>' +
         '       </select>' +
-
-
-
         '<label for="updateFactory_Min" class="form_label" style="padding-left: 10%">Range</label><input id="updateFactory_Min" placeholder="min" style=" width: 10%">' +
         ' - <input id="updateFactory_Max" placeholder="max" style="width: 10%">' +
         '</fieldset>'
@@ -62,68 +59,57 @@ function updateNode(factory) {
 
 }
 
-function setErrorState(ele, isError){
-    if (isError) {
-        ele.classList.add('error_input')
-    } else {
-        ele.classList.remove('error_input');
-    }
-}
+
 
 
 function isUpdateValid() {
     setErrorState(id("updateFactory_Id"), false);
     setErrorState(id("updateFactory_Name"), false);
-    setErrorState(id("updateFactory_Nodes"), false);
     setErrorState(id("updateFactory_Min"), false);
     setErrorState(id("updateFactory_Max"), false);
 
     var nodeId = id("updateFactory_Id").value.trim();
     var name = id("updateFactory_Name").value.trim();
-    var numNodes = id("updateFactory_Nodes").value.trim();
     var min = id("updateFactory_Min").value.trim();
     var max = id("updateFactory_Max").value.trim();
 
     id("updateFactory_Name").value = name.trim();
 
+    var errMsg = '';
+
     console.log(nodeId);
 
     var isUpdateValid = true;
 
-    if (isBlank(name, 'Factory Name')){
+    if (name === ""){
         isUpdateValid = false;
+        errMsg += 'Factory Name is required.';
         setErrorState(id("updateFactory_Name"), true);
     }
 
-    if (! isInt(numNodes)){
-        alert('factory Nodes must be an INT between 1 and 15 (inclusive)');
-        setErrorState(id("updateFactory_Nodes"), true);
-        isUpdateValid = false;
-    } else if (numNodes  < 1 || numNodes > 15) {
-        alert('factory Nodes must be a INT between 1 and 15 (inclusive)');
-        setErrorState(id("updateFactory_Nodes"), true);
-        isUpdateValid = false;
-    }
-
     if (! isInt(min)) {
-        alert('Minimum range must be an integer less than max range');
+        errMsg += '\nMinimum range must be an INT less than max range.';
         setErrorState(id("updateFactory_Min"), true);
         min = '';
         isUpdateValid = false;
     }
 
     if (! isInt(max)) {
-        alert('Maximum range must be an integer greater than min range');
+        errMsg += '\nMaximum range must be an INT greater than min range.';
         setErrorState(id("updateFactory_Max"), true);
         max = '';
         isUpdateValid = false;
     }
 
     if (parseInt(max) <= parseInt(min)) {
-        alert('Minimum range must be less than maximum range');
+        errMsg += '\nMinimum range must be less than maximum range.';
         setErrorState(id("updateFactory_Min"), true);
         setErrorState(id("updateFactory_Max"), true);
         isUpdateValid = false;
+    }
+
+    if (!isUpdateValid){
+        alert(errMsg);
     }
 
     return isUpdateValid;

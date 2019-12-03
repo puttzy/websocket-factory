@@ -12,9 +12,11 @@ function id(id) {
     return document.getElementById(id);
 }
 
+/*
 id("connection_status").addEventListener("click", function () {
     requirementsModal.open();
 });
+*/
 
 // Short-circuiting, and saving a parse operation
 function isInt(value) {
@@ -123,3 +125,12 @@ function isMobile() {
     }
 }
 
+
+function setErrorState(ele, isError){
+    if (isError) {
+        ele.classList.add('error_input')
+        ele.value = '';
+    } else {
+        ele.classList.remove('error_input');
+    }
+}
