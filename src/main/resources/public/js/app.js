@@ -14,7 +14,7 @@ function sendCreateMessage() {
 
 function showConfirmDeleteDialog(node){
     deleteModal.node = node;
-    deleteModal.setContent('<h1>Are you sure you wish to delete the factory named: "'+node.text+'"?</h1>');
+    deleteModal.setContent('<h3>Are you sure you wish to delete the factory named: "'+node.text+'"?</h3>');
     deleteModal.open();
 }
 

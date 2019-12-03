@@ -110,7 +110,7 @@ var redoFactoryModal = new tingle.modal({
 });
 
 // set content
-redoFactoryModal.setContent(''+
+redoFactoryModal.setContent(''/*''+
     '<fieldset id="update-factory">' +
     '<legend>Update Factory</legend>' +
     '<input id="updateFactory_Id" placeholder="Node Id">' +
@@ -119,7 +119,7 @@ redoFactoryModal.setContent(''+
     '<input id="updateFactory_Min" placeholder="min">' +
     '<input id="updateFactory_Max" placeholder="max">' +
     '<button id="updateFactory_Button">Update Factory</button>' +
-    '</fieldset>' 
+    '</fieldset>' */
 );
 
 // add a button
@@ -165,7 +165,7 @@ var renameFactoryModal = new tingle.modal({
 });
 
 // set content
-renameFactoryModal.setContent(''+
+renameFactoryModal.setContent(''/*''+
     '<fieldset id="update-factory">' +
     '<legend>Update Factory</legend>' +
     '<input id="updateFactory_Id" placeholder="Node Id">' +
@@ -174,7 +174,7 @@ renameFactoryModal.setContent(''+
     '<input id="updateFactory_Min" placeholder="min">' +
     '<input id="updateFactory_Max" placeholder="max">' +
     '<button id="updateFactory_Button">Update Factory</button>' +
-    '</fieldset>'
+    '</fieldset>'*/
 );
 
 // add a button

@@ -5,8 +5,8 @@ spring:
       enabled: false
   datasource:
     initialization-mode: always
-    url: jdbc:mysql://104.196.220.75/passport
-    username: "root"
+    url: ${db_url}
+    username: ${db_username}
     password: ${db_password}
     driver-class-name: com.mysql.jdbc.Driver
   flyway:

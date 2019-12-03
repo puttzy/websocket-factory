@@ -9,7 +9,6 @@ html {
 body {
     font-family: monospace;
     font-size: 14px;
-    max-width: 480px;
     margin: 0 0;
     padding: 20px;
 }
@@ -47,11 +46,11 @@ li {
 
 .root-node {
     font-family: Verdana, Geneva, sans-serif;
-    font-size: 11px;
+    font-size: 3em;
     letter-spacing: 0.2px;
     word-spacing: -1px;
     color: whitesmoke;
-    background-color: cornflowerblue;
+    background-color: mediumaquamarine;
     font-weight: 700;
     text-decoration: none;
     font-style: normal;
@@ -60,6 +59,7 @@ li {
     width: 100%;
     padding: 3px 10px;
     border-radius: 15px;
+    display: block;
 }
 
 @keyframes enter {
@@ -140,4 +140,12 @@ li {
     padding: 10px;
     /* NAME | TIME | ITERATION */
     animation: update-blink 1s ;
+}
+
+.form_label{
+    padding-right: 5px;
+}
+
+.error_input {
+    border: 1px solid red;
 }

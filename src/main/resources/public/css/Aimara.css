@@ -25,7 +25,7 @@ ul.tree li {
 	background: url('../images/tree_node.png') no-repeat;
 
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 11px;
+	font-size: 1em;
 	letter-spacing: 0.2px;
 	word-spacing: -1px;
 	color: #000000;
@@ -44,11 +44,11 @@ ul.tree li ul li{
 	background: url('../images/tree_node.png') no-repeat;
 
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 11px;
+	font-size: 1em;
 	letter-spacing: 0.2px;
 	word-spacing: -1px;
 	color: #000000;
-	font-weight: 500;
+	font-weight: 700;
 	text-decoration: none;
 	font-style: normal;
 	font-variant: normal;
@@ -66,7 +66,7 @@ ul.tree li.last {
 img.exp_col {
 	position: absolute;
 	margin-top: 4px;
-	margin-left: -20px;
+	margin-left: -18.5px;
 	vertical-align: sub;
 }
 
@@ -117,7 +117,8 @@ span.node_selected {
 
 	padding-top: 4px;
 	padding-bottom: 4px;
-	background-color: #CEFFCE;
+	background-color: rgba(102,205,170 ,1);
+	opacity: 0.2;
 	border: 1px solid #8AE88A;
 	border-radius: 2px;
 }
