@@ -5,15 +5,15 @@ spring:
       enabled: false
   datasource:
     initialization-mode: always
-    url: ${db_url}
-    username: ${db_username}
-    password: ${db_password}
+    url: jdbc:mysql://passport-db/passport
+    username: root
+    password: password
     driver-class-name: com.mysql.jdbc.Driver
-  flyway:
-    locations: classpath:database_migrations
-    clean-on-validation-error: true
-    clean-disabled: false
-    clean: true
+#  flyway:
+#    locations: classpath:database_migrations
+#    clean-on-validation-error: true
+#    clean-disabled: false
+#    clean: true
   management:
     endpoints:
       web:
