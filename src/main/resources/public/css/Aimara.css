@@ -117,8 +117,8 @@ span.node_selected {
 
 	padding-top: 4px;
 	padding-bottom: 4px;
-	background-color: rgba(102,205,170 ,1);
-	opacity: 0.2;
+	background-color: rgba(102,205,170 ,.5);
+
 	border: 1px solid #8AE88A;
 	border-radius: 2px;
 }

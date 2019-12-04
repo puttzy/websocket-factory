@@ -47,7 +47,7 @@ li {
 .root-node {
     font-family: Verdana, Geneva, sans-serif;
     font-size: 16px;
-    font-size: 4vw;
+    font-size: -4vw;
     letter-spacing: 0.2px;
     word-spacing: -1px;
     color: whitesmoke;
@@ -57,7 +57,7 @@ li {
     font-style: normal;
     font-variant: small-caps;
     text-transform: capitalize;
-    width: 100%;
+    width: 30%;
     padding: 3px 10px;
     border-radius: 15px;
     display: block;
@@ -149,4 +149,18 @@ li {
 
 .error_input {
     border: 1px solid red;
+}
+
+.action_icon {
+    border-radius: 50%;
+    background: whitesmoke;
+    height: 30px;
+    text-align: right;
+}
+
+.panel_hidden {
+    display: none;
+}
+.panel_visible {
+    display: block;
 }

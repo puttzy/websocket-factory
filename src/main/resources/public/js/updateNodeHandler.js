@@ -1,4 +1,5 @@
 function regenerateFactory(node){
+
     redoFactoryModal.node = node;
     redoFactoryModal.setContent(''+
         '<fieldset id="update-factory">' +
@@ -31,11 +32,11 @@ function regenerateFactory(node){
 }
 
 
-function deleteFactory(nodeId){
+function deleteFactory(node){
 
     removeClasses('node_selected', 'node')
-    id(nodeId).classList.add('delete-blink');
-    setTimeout(function(){ tree.findNode(nodeId).removeNode(); }, 800);
+    id(node).classList.add('delete-blink');
+    setTimeout(function(){ tree.findNode(node).removeNode(); }, 800);
 
 }
 
@@ -146,7 +147,7 @@ function renameFactory(node){
         '<fieldset id="rename-factory"> '  +
         '<legend>Rename Factory "'+node.text+'"</legend> '  +
         '<input id="renameFactory_Id" placeholder="Node Id" hidden value="'+node.tag+'"> '  +
-        '<label for="renameFactory_Name" class="form_label" >New Name: </label><input id="renameFactory_Name"  placeholder="New Name" style="width: 50%"> '  +
+        '<label for="renameFactory_Name" class="form_label" >Factory Name: </label><input id="renameFactory_Name"  placeholder="New Factory Name" style="width: 50%"> '  +
         '</fieldset> ' 
     );
     renameFactoryModal.open();
@@ -154,8 +155,16 @@ function renameFactory(node){
 
 function renameFactoryRequest() {
 
+    setErrorState(id("addFactory_Min"), false);
     this.id = id("renameFactory_Id").value;
     this.name = id("renameFactory_Name").value;
+
+    if ( id("renameFactory_Name").value.trim() === "" ) {
+        alert('Factory Name is required');
+        setErrorState(id("renameFactory_Name"), true);
+        id("renameFactory_Name").value = '';
+        throw "Invalid input";
+    }
 
     id("renameFactory_Id").value = '';
     id("renameFactory_Name").value = '';

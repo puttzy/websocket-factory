@@ -5,7 +5,7 @@ var contex_menu = {
                 text : 'Delete Factory',
                 icon: 'images/menu_delete.png',
                 action : function(node) {
-                    showConfirmDeleteDialog(node);
+                    confirmDelete(node);
                     //sendDeleteMessage(node);
                 }
             },{

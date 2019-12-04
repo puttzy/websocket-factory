@@ -134,3 +134,12 @@ function setErrorState(ele, isError){
         ele.classList.remove('error_input');
     }
 }
+
+function swapActionPanels(toShow, toHide){
+    id(toHide).classList.replace('panel_visible', 'panel_hidden')
+    id(toShow).classList.replace('panel_hidden', 'panel_visible')
+}
+
+function findSelectedNode(){
+
+}

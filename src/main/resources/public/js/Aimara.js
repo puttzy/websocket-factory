@@ -117,10 +117,15 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 			var div_tree = document.getElementById(this.div);
 
 			div_tree.innerHTML = '<div class="root-node"> ' +
-				' Root ' +
-				' 	<div style="text-align: left; font-size: 12px; " onclick="createModal.open()"> ' +
-				'		<img src="../images/menu_create.png" style="height: 15px; " >New' +
-				'   </div> ' +
+				' <div style="text-align: left; margin: 0; top 50%;"> Root  </div>' +
+				' <div style="text-align: right;" id="create_panel" class="panel_visible" >' +
+				'		<img src="../images/menu_create_new.png"  style="align: right" class="action_icon" onclick="createModal.open()" alt="Create New Factory" title="Create New Factory">' +
+				' </div> ' +
+				' <div style="text-align: right" id="update_panel"  class="panel_hidden">' +
+				'		<img src="../images/menu_delete.png"  style="align: right" class="action_icon" onclick="confirmDelete(tree.findNode(document.getElementsByClassName(\'node_selected\')[0].parentNode.id))" alt="Delete Factory" title="Delete Factory">' +
+				'		<img src="../images/menu_regenerate.png"  style="align: right" class="action_icon" onclick="regenerateFactory(tree.findNode(document.getElementsByClassName(\'node_selected\')[0].parentNode.id))" alt="Regenerate Factory" title="Regenerate Factory">' +
+				'		<img src="../images/menu_rename.png"  style="align: right" class="action_icon" onclick="renameFactory(tree.findNode(document.getElementsByClassName(\'node_selected\')[0].parentNode.id))" alt="Rename Factory" title="Rename Factory">' +
+				' </div> ' +
 				' </div>';
 
 			ulElement = createSimpleElement('ul',this.name,'tree');
@@ -312,6 +317,9 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 			span.className = 'node_selected';
 			if (this.selectedNode!=null && this.selectedNode!=p_node)
 				this.selectedNode.elementLi.getElementsByTagName("span")[0].className = 'node';
+
+			swapActionPanels("update_panel", "create_panel");
+
 			this.selectedNode = p_node;
 		},
 		///// Deleting node
@@ -331,6 +339,8 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 				var v_img = p_node.parent.elementLi.getElementsByTagName("img")[0];
 				v_img.style.visibility = "hidden";
 			}
+
+			swapActionPanels("create_panel", "update_panel");
 
 		},
 		///// Deleting all node children

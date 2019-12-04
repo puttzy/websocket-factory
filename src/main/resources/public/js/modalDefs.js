@@ -194,14 +194,10 @@ renameFactoryModal.setContent(''/*''+
     '</fieldset>'*/
 );
 
-// add a button
 renameFactoryModal.addFooterBtn('Rename Factory', 'tingle-btn tingle-btn--primary', function() {
-
     if (sendRenameMessage()){
         renameFactoryModal.close();
     }
-    // here goes some logic
-
 });
 
 // add another button

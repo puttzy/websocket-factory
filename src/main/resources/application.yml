@@ -38,6 +38,12 @@ server:
       init-parameters:
         listings: true
 
+logging:
+  level:
+    root: INFO
+    org.flyway: TRACE
+    com.zaxxer.hikari.HikariDataSource: TRACE
+
 #datasources:
 #  default:
 #    url: jdbc:mysql://104.196.220.75/passport

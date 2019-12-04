@@ -12,7 +12,7 @@ function sendCreateMessage() {
     return false;
 }
 
-function showConfirmDeleteDialog(node){
+function confirmDelete(node){
     deleteModal.node = node;
     deleteModal.setContent('<h3>Are you sure you wish to delete the factory named: "'+node.text+'"?</h3>');
     deleteModal.open();
