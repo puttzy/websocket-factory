@@ -10,7 +10,7 @@ body {
     font-family: monospace;
     font-size: 14px;
     margin: 0 0;
-    padding: 20px;
+
 }
 
 input {
@@ -57,10 +57,11 @@ li {
     font-style: normal;
     font-variant: small-caps;
     text-transform: capitalize;
-    width: 30%;
+    width: 90%;
     padding: 3px 10px;
     border-radius: 15px;
     display: block;
+    height: 40px
 }
 
 @keyframes enter {
@@ -153,9 +154,15 @@ li {
 
 .action_icon {
     border-radius: 50%;
-    background: whitesmoke;
+    background: radial-gradient(#7FFFD4, #F2FFFb);
     height: 30px;
     text-align: right;
+}
+
+.action_icon:hover {
+
+    background: radial-gradient(#F2FFFb, #7FFFD4);
+
 }
 
 .panel_hidden {
@@ -163,4 +170,11 @@ li {
 }
 .panel_visible {
     display: block;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: lightgrey;
 }

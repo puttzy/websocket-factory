@@ -117,15 +117,15 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 			var div_tree = document.getElementById(this.div);
 
 			div_tree.innerHTML = '<div class="root-node"> ' +
-				' <div style="text-align: left; margin: 0; top 50%;"> Root  </div>' +
-				' <div style="text-align: right;" id="create_panel" class="panel_visible" >' +
+				' <span style=" position:relative; top:20%;"> Root  </span>' +
+				' <span style="  position:relative; top:20%;float: right;" id="create_panel" class="panel_visible" >' +
 				'		<img src="../images/menu_create_new.png"  style="align: right" class="action_icon" onclick="createModal.open()" alt="Create New Factory" title="Create New Factory">' +
-				' </div> ' +
-				' <div style="text-align: right" id="update_panel"  class="panel_hidden">' +
+				' </span> ' +
+				' <span style="  position:relative; top:20%; float: right;" id="update_panel"  class="panel_hidden">' +
 				'		<img src="../images/menu_delete.png"  style="align: right" class="action_icon" onclick="confirmDelete(tree.findNode(document.getElementsByClassName(\'node_selected\')[0].parentNode.id))" alt="Delete Factory" title="Delete Factory">' +
 				'		<img src="../images/menu_regenerate.png"  style="align: right" class="action_icon" onclick="regenerateFactory(tree.findNode(document.getElementsByClassName(\'node_selected\')[0].parentNode.id))" alt="Regenerate Factory" title="Regenerate Factory">' +
 				'		<img src="../images/menu_rename.png"  style="align: right" class="action_icon" onclick="renameFactory(tree.findNode(document.getElementsByClassName(\'node_selected\')[0].parentNode.id))" alt="Rename Factory" title="Rename Factory">' +
-				' </div> ' +
+				' </span> ' +
 				' </div>';
 
 			ulElement = createSimpleElement('ul',this.name,'tree');
@@ -318,7 +318,10 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 			if (this.selectedNode!=null && this.selectedNode!=p_node)
 				this.selectedNode.elementLi.getElementsByTagName("span")[0].className = 'node';
 
-			swapActionPanels("update_panel", "create_panel");
+
+			setNodeActionPanelVisibility(p_node.childNodes.length !== 0);
+
+
 
 			this.selectedNode = p_node;
 		},
@@ -340,7 +343,8 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 				v_img.style.visibility = "hidden";
 			}
 
-			swapActionPanels("create_panel", "update_panel");
+			setNodeActionPanelVisibility(false);
+
 
 		},
 		///// Deleting all node children

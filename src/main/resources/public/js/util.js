@@ -140,6 +140,20 @@ function swapActionPanels(toShow, toHide){
     id(toShow).classList.replace('panel_hidden', 'panel_visible')
 }
 
-function findSelectedNode(){
+function setNodeActionPanelVisibility(isVisible){
+    if (isVisible){
+        id('update_panel').classList.replace('panel_hidden', 'panel_visible')
+    } else {
+        id('update_panel').classList.replace('panel_visible', 'panel_hidden')
+    }
 
 }
+
+function deselectNode(){
+    document.getElementsByClassName('node_selected')[0].classList.remove('node_selected');
+    setNodeActionPanelVisibility(false);
+
+}
+
+
+
