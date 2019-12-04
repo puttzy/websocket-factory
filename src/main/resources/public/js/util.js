@@ -64,7 +64,7 @@ function addFactory(rawFactoryJSON){
         factoryJson = JSON.parse(rawFactoryJSON);
     }
 
-    var factory = tree.createNode(factoryJson.name,false,'images/tree_factory2.png',null,factoryJson.id,'factoryMenu');
+    var factory = tree.createNode(factoryJson.name,false,'images/tree_factory2.png',null,factoryJson.id,'factoryMenu', factoryJson.number, factoryJson.min, factoryJson.max, factoryJson.name);
     addNodes(factory, factoryJson.nodes);
 }
 
@@ -100,29 +100,12 @@ function removeClasses(classToRemove, classToAdd) {
     }
 }
 
+function redrawAllData(treeData) {
+    var allData = treeData;
+    if (isJson(allData)) {
+        addFactories(allData);
 
-function isMobile() {
-    var useragent = navigator.userAgent;
-
-    if(useragent.match(/Android/i)) {
-        return true;
-    } else if(useragent.match(/webOS/i)) {
-        return true;
-    } else if(useragent.match(/iPhone/i)) {
-        return true;
-    } else if(useragent.match(/iPod/i)) {
-        return true;
-    } else if(useragent.match(/iPad/i)) {
-        return true;
-    } else if(useragent.match(/Windows Phone/i)) {
-        return true;
-    } else if(useragent.match(/SymbianOS/i)) {
-        return true;
-    } else if(useragent.match(/RIM/i) || useragent.match(/BB/i)) {
-        return true;
-    } else {
-        return false;
-    }
+    } else {alert('load - not json:' + treeData)}
 }
 
 

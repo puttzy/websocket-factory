@@ -31,6 +31,7 @@ public class FactoryResponseExtractor implements ResultSetExtractor<List<Factory
             FactoryResponse.FactoryNode factoryNode = factoryNodeRowMapper.mapRow(rs, factoryResponse.getNodes().size());
 
             factoryResponse.getNodes().add(factoryNode);
+            factoryResponse.setNumber(factoryResponse.getNodes().size());
             factories.put(factoryId, factoryResponse);
 
         }

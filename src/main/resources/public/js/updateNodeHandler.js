@@ -5,7 +5,7 @@ function regenerateFactory(node){
         '<fieldset id="update-factory">' +
         '<legend>Regenerate Factory:  "'+node.text+'"</legend>' +
         '<input id="updateFactory_Id" placeholder="Node Id" value="'+node.tag+'" hidden>' +
-        '<label for="updateFactory_Name" class="form_label">New Name</label><input id="updateFactory_Name"  placeholder="Factory Name" maxlength="50" style="width: 60%"> <br/>' +
+        '<label for="updateFactory_Name" class="form_label">New Name</label><input id="updateFactory_Name"  placeholder="Factory Name" maxlength="50" style="width: 60%" value="'+node.name+'"> <br/>' +
         '<label for="updateFactory_Nodes" class="form_label">Number Of Nodes</label>' +
         '   <select id="updateFactory_Nodes" placeholder="How many nodes">' +
         '       <option> 1 </option>' +
@@ -24,8 +24,8 @@ function regenerateFactory(node){
         '       <option> 14 </option>' +
         '       <option> 15 </option>' +
         '       </select>' +
-        '<label for="updateFactory_Min" class="form_label" style="padding-left: 10%">Range</label><input id="updateFactory_Min" placeholder="min" style=" width: 10%">' +
-        ' - <input id="updateFactory_Max" placeholder="max" style="width: 10%">' +
+        '<label for="updateFactory_Min" class="form_label" style="padding-left: 10%">Range</label><input id="updateFactory_Min" placeholder="min" style=" width: 10%" value="'+node.min+'">' +
+        ' - <input id="updateFactory_Max" placeholder="max" style="width: 10%"  value="'+node.max+'">' +
         '</fieldset>'
     );
     redoFactoryModal.open();
@@ -51,6 +51,11 @@ function updateNode(factory) {
     setTimeout(function(){
         id(factory.id).classList.remove('update-blink');
         parentNode.setText(factory.name);
+        parentNode.number=factory.number;
+        parentNode.min=factory.min;
+        parentNode.max=factory.max;
+        parentNode.name=factory.name;
+
         parentNode.removeChildNodes();
         addNodes(parentNode, factory.nodes);
 

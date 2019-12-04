@@ -31,7 +31,7 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 		// p_tag: Tag is used to store additional information on the node. All node attributes are visible when programming events and context menu actions;
 		// p_contextmenu: Name of the context menu, which is one of the attributes of the p_contextMenu object created with the tree;
 
-		createNode: function(p_text,p_expanded, p_icon, p_parentNode,p_tag,p_contextmenu) {
+		createNode: function(p_text,p_expanded, p_icon, p_parentNode,p_tag,p_contextmenu, p_numberOfNodes, p_min, p_max, p_name) {
 			v_tree = this;
 			node = {
 				id: 'node_' + p_tag,
@@ -42,6 +42,10 @@ function createTree(p_div,p_backColor,p_contextMenu) {
 				childNodes : [],
 				tag : p_tag,
 				contextMenu: p_contextmenu,
+                numberOfNodes: p_numberOfNodes,
+                min: p_min,
+                max: p_max,
+				name: p_name,
 				elementLi: null,
 				///// Removing the node and all its children
 				removeNode: function() { v_tree.removeNode(this); },
