@@ -36,7 +36,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.18'
-	implementation group: 'org.flywaydb', name: 'flyway-core', version: '6.0.8'
+	//implementation group: 'org.flywaydb', name: 'flyway-core', version: '6.0.8'
 	implementation group: 'org.springframework', name: 'spring-messaging', version: '5.2.1.RELEASE'
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.10.1'
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.1'
