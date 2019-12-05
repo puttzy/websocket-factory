@@ -20,11 +20,11 @@ create table factory_nodes (
         ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into factory (name, minRange, maxRange) values ('dan', 1, 10);
-insert into factory_nodes (factory_id, value) values (1, 123);
-insert into factory_nodes (factory_id, value) values (1, 1234);
-insert into factory_nodes (factory_id, value) values (1, 12345);
-insert into factory_nodes (factory_id, value) values (1, 1235);
+insert into factory (name, minRange, maxRange) values ('Welcome to the Container', 1, 1000);
+insert into factory_nodes (factory_id, value) values (1, 1);
+insert into factory_nodes (factory_id, value) values (1, 14);
+insert into factory_nodes (factory_id, value) values (1, 345);
+insert into factory_nodes (factory_id, value) values (1, 235);
 
 delete from factory where factory_id not in (select distinct  factory_id from factory_nodes);
 

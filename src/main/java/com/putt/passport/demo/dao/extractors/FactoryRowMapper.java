@@ -15,7 +15,7 @@ class FactoryRowMapper  implements RowMapper<FactoryResponse> {
         FactoryResponse factoryResponse = new FactoryResponse();
         factoryResponse.setId(rs.getLong("factory_id"));
         factoryResponse.setMin(rs.getInt("minRange"));
-        factoryResponse.setMin(rs.getInt("maxRange"));
+        factoryResponse.setMax(rs.getInt("maxRange"));
         factoryResponse.setName(rs.getString("name"));
         factoryResponse.setNodes(new HashSet<>());
         return factoryResponse;
