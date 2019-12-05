@@ -37,6 +37,7 @@ The application is built using [SpringBoot](https://spring.io/projects/spring-bo
     * maybe some transitions or smooth animations between states
 * Revisit Accessibility
     * I've made sure to add alt and title tag to everything, but there's a lot more to accessibility than this.  For instance I need to ensure the contrast is correct, not display errors with only highlighting, etc
+* Show a connection status that will switch state showing that the socket connection has died
 * Add some selenium, junit, & dbunit testing
 * Containerize it _(partially done)_
   * Ideally you'd be able to pull down the repository run a _docker compose up_ and the entire application, including the database would be working in a local environment
