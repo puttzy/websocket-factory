@@ -1,4 +1,4 @@
-_if you want to run the locally please check out the "[CONTAINERIZATION](https://github.com/puttzy/websocket-factory/tree/container)" branch and follow the directions there_ 
+*_if you want to run the locally please check out the "[CONTAINERIZATION](https://github.com/puttzy/websocket-factory/tree/container)" branch and follow the directions there_* 
 
 
 # Purpose
