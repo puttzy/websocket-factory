@@ -135,8 +135,17 @@ function setNodeActionPanelVisibility(isVisible){
 function deselectNode(){
     document.getElementsByClassName('node_selected')[0].classList.remove('node_selected');
     setNodeActionPanelVisibility(false);
-
 }
 
+
+function setSelected(element, value){
+    var options = id(element).options;
+    for (var i = 0 ; i < options.length ; i++){
+        if (options[i].value == value ){
+            id(element).selectedIndex = i;
+            break;
+        }
+    }
+}
 
 
