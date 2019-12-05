@@ -1,4 +1,4 @@
-##This branch
+## This branch
 This branch hasn't had a chance to be merged back into master yet 
 but it will servce as a place where, if you have docker installed on 
 your machine, you can pull -> build -> run the entire application on 
@@ -7,6 +7,7 @@ your local box.
 The build process will create an image containing MySQL, create the schema and 
 seed it using [flyway](https://flywaydb.org/), and then start the springboot application at  http://localhost:8090/
 
+#### Running locally
 In order to start the application in docker run
 >docker-compose build passport-web
 >
@@ -18,14 +19,14 @@ _The reason that this is not merged is because the environmwent variables weren'
 being passed into the spring contianer and I had to hard code the db  url/un/pw_
 
 
-#Purpose
+# Purpose
 
-#About
+# About
 The application is built using [SpringBoot](https://spring.io/projects/spring-boot), 
 [Gradle](https://gradle.org/), and a few front-end libraries to help with the tree [(AimaraJS)](https://github.com/rafaelthca/aimaraJS/wiki/Usage), 
 and the dialogs [(tingle.js)](https://tingle.robinparisi.com/) mostly 
 
-#Todo
+# Todo
 * More focus on UI.  
     * standardizing fonts / sizes
     * better color selection
