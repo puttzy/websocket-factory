@@ -1,7 +1,11 @@
 ##This branch
-This branch hasn't had a chance to be merged back into master yet but it will servceas a place where, if you have docker installed on your machine, you can pull -> build -> run the entire application on your local box.  
+This branch hasn't had a chance to be merged back into master yet 
+but it will servce as a place where, if you have docker installed on 
+your machine, you can pull -> build -> run the entire application on 
+your local box.  
 
-The build process will create an image containing MySQL, create the schema and seed it using [flyway](https://flywaydb.org/), and then start the springboot application at  http://localhost:8090/
+The build process will create an image containing MySQL, create the schema and 
+seed it using [flyway](https://flywaydb.org/), and then start the springboot application at  http://localhost:8090/
 
 In order to start the application in docker run
 >docker-compose build passport-web
@@ -10,6 +14,8 @@ In order to start the application in docker run
 
 After that the application should be available at [http://localhost:8090](http://localhost:8090)
 
+_The reason that this is not merged is because the environmwent variables weren't
+being passed into the spring contianer and I had to hard code the db  url/un/pw_
 
 
 #Purpose
