@@ -20,7 +20,7 @@ create table factory_nodes (
         ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into factory (name, minRange, maxRange) values ('Welcome to the Container', 1, 1000);
+insert into factory (name, minRange, maxRange) values ('It\'s working locally!!', 1, 1000);
 insert into factory_nodes (factory_id, value) values (1, 1);
 insert into factory_nodes (factory_id, value) values (1, 14);
 insert into factory_nodes (factory_id, value) values (1, 345);
