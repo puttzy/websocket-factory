@@ -211,7 +211,7 @@ function isCreateValid() {
         setErrorState(id("addFactory_Min"), true);
     }
 
-    if (max <= min) {
+    if (parseInt(max) <= parseInt(min)) {
         errMsg += '\nMinimum range must be less than maximum range.';
 
         areInputsValid = false;
