@@ -33,6 +33,10 @@ management:
       context-path: /_ah
 
 server:
+  error:
+    whitelabel:
+      enabled=false:
+
   servlet:
     jsp:
       init-parameters:
