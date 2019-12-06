@@ -112,7 +112,7 @@ function isUpdateValid() {
     }
 
     if (parseInt(max) <= parseInt(min)) {
-        errMsg += '\nMinimum range must be less than maximum range.';
+        errMsg += '\nMinimum range ('+min+') must be less than maximum range ('+max+').';
         setErrorState(id("updateFactory_Min"), true);
         setErrorState(id("updateFactory_Max"), true);
         isUpdateValid = false;
@@ -211,8 +211,8 @@ function isCreateValid() {
         setErrorState(id("addFactory_Min"), true);
     }
 
-    if (max <= min) {
-        errMsg += '\nMinimum range must be less than maximum range.';
+    if (parseInt(max) <= parseInt(min)) {
+        errMsg += '\nMinimum range ('+min+') must be less than maximum range ('+max+').';
 
         areInputsValid = false;
         setErrorState(id("addFactory_Min"), true);
